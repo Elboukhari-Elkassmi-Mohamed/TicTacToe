@@ -56,8 +56,10 @@ function setValue(symbole) {
         setTimeout(function () {
           alert(localStorage.getItem("Splayer"));
         }, 100);
+        refresh();
       }
       if (i == 9) {
+        draw();
       }
     }
   }
@@ -86,4 +88,10 @@ function draw() {
   setTimeout(function () {
     alert("draw");
   }, 100);
+
+  window.location.reload();
+}
+
+function refresh() {
+  window.location.reload();
 }
