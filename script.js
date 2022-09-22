@@ -26,12 +26,8 @@ getItems.forEach((getItem) => {
   getItem.addEventListener("click", () => setValue(getItem));
 });
 
-
-
-
 let arry = ["", "", "", "", "", "", "", "", ""];
 const x = Array.from(getItems);
-
 
 function setValue(symbole) {
   if (symbole.innerHTML == "") {
@@ -43,11 +39,13 @@ function setValue(symbole) {
       arry[g] = symbole.innerText;
 
       if (result()) {
-
         setTimeout(function () {
-          alert(localStorage.getItem("Fplayer"));}, 100);
+          alert(localStorage.getItem("Fplayer"));
+        }, 100);
       }
-
+      if (i == 9) {
+        draw();
+      }
     } else {
       symbole.innerHTML = "o";
       turn = "o";
@@ -55,17 +53,18 @@ function setValue(symbole) {
       arry[c] = symbole.textContent;
 
       if (result()) {
-
         setTimeout(function () {
-          alert(localStorage.getItem("Splayer"));}, 100);
-      
+          alert(localStorage.getItem("Splayer"));
+        }, 100);
+      }
+      if (i == 9) {
       }
     }
   }
 }
 
-
 // get result
+let i = 0;
 function result() {
   if (
     (arry[0] == arry[1] && arry[1] == arry[2] && arry[2] != "") ||
@@ -79,6 +78,12 @@ function result() {
   ) {
     return true;
   } else {
-    return false;
+    i++;
   }
+}
+
+function draw() {
+  setTimeout(function () {
+    alert("draw");
+  }, 100);
 }
