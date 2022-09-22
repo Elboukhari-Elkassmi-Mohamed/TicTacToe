@@ -27,29 +27,26 @@ getItems.forEach((getItem) => {
 });
 
 
-let arry = ["","","","","","","","",""];
 
 
+let arry = ["", "", "", "", "", "", "", "", ""];
 const x = Array.from(getItems);
 
+
 function setValue(symbole) {
-    
-
-    if (symbole.innerHTML == "") {
+  if (symbole.innerHTML == "") {
     if (turn == "o") {
-
       symbole.innerHTML = "x";
       turn = "x";
 
       let g = x.indexOf(symbole);
       arry[g] = symbole.innerText;
 
+      if (result()) {
 
-  if(result()){
-    
-    setTimeout(function(){alert( localStorage.getItem("Fplayer"));},100)
-
-  }
+        setTimeout(function () {
+          alert(localStorage.getItem("Fplayer"));}, 100);
+      }
 
     } else {
       symbole.innerHTML = "o";
@@ -57,31 +54,31 @@ function setValue(symbole) {
       let c = x.indexOf(symbole);
       arry[c] = symbole.textContent;
 
-      if(result()){
-        
-        setTimeout(function(){alert( localStorage.getItem("Splayer"));},100)
-           
+      if (result()) {
+
+        setTimeout(function () {
+          alert(localStorage.getItem("Splayer"));}, 100);
+      
       }
     }
-    console.log(arry);
   }
-  result()
 }
+
+
 // get result
-function result(){
-    if(
-     arry[0]==arry[1] && arry[1]==arry[2] && arry[2]!=""||
-     arry[3]==arry[4] && arry[4]==arry[5] && arry[5]!="" ||
-     arry[6]==arry[7] && arry[7]==arry[8] && arry[8]!="" ||
-     arry[0]==arry[3] && arry[3]==arry[6] && arry[6]!="" ||
-     arry[1]==arry[4] && arry[4]==arry[7] && arry[7]!="" ||
-     arry[2]==arry[5] && arry[5]==arry[8] && arry[8]!="" ||
-     arry[0]==arry[4] && arry[4]==arry[8] && arry[8]!="" ||
-     arry[2]==arry[4] && arry[4]==arry[6] && arry[6]!="" )
-     {
-       return true;
-      
-    } else {return false}
-
+function result() {
+  if (
+    (arry[0] == arry[1] && arry[1] == arry[2] && arry[2] != "") ||
+    (arry[3] == arry[4] && arry[4] == arry[5] && arry[5] != "") ||
+    (arry[6] == arry[7] && arry[7] == arry[8] && arry[8] != "") ||
+    (arry[0] == arry[3] && arry[3] == arry[6] && arry[6] != "") ||
+    (arry[1] == arry[4] && arry[4] == arry[7] && arry[7] != "") ||
+    (arry[2] == arry[5] && arry[5] == arry[8] && arry[8] != "") ||
+    (arry[0] == arry[4] && arry[4] == arry[8] && arry[8] != "") ||
+    (arry[2] == arry[4] && arry[4] == arry[6] && arry[6] != "")
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
-
